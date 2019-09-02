@@ -1,17 +1,11 @@
 console.log("JavaScript is running");
 
 var screen = document.getElementsByClassName("screen")[0];
-screen.addEventListener("input", screenChange);
 
 var operandA;
 var operandB;
 var readOperandB;
 var operation;
-
-function screenChange(e)
-{
-	console.log("screen value: " + e.target.value);
-}
 
 for (let i = 0; i < document.getElementsByClassName("cell").length; i++)
 {
@@ -33,32 +27,31 @@ function pushButton(e)
 		}
 
 		readOperandB = false;
-		console.log(readOperandB);
-		console.log("operandA: " + operandA);
+		document.getElementsByClassName("screen")[0].value = operandA;
 	}
 	else if (e.srcElement.innerHTML == "+")
 	{
-		console.log("sum");
 		readOperandB = true;
 		operation = "+";
+		document.getElementsByClassName("screen")[0].value = "+";
 	}
 	else if (e.srcElement.innerHTML == "-")
 	{
-		console.log("rest");
 		readOperandB = true;
 		operation = "-";
+		document.getElementsByClassName("screen")[0].value = "-";
 	}
 	else if (e.srcElement.innerHTML == "*")
 	{
-		console.log("mult");
 		readOperandB = true;
 		operation = "*";
+		document.getElementsByClassName("screen")[0].value = "*";
 	}
 	else if (e.srcElement.innerHTML == "/")
 	{
-		console.log("division");
 		readOperandB = true;
 		operation = "/";
+		document.getElementsByClassName("screen")[0].value = "/";
 	}
 	else if (e.srcElement.innerHTML >= "0" && e.srcElement.innerHTML <= 9 && readOperandB)
 	{
@@ -72,25 +65,25 @@ function pushButton(e)
 			operandB += +e.srcElement.innerHTML;
 		}
 		
-		console.log(operandB);
+		document.getElementsByClassName("screen")[0].value = operandB;
 	}
 	else if (e.srcElement.innerHTML == "=")
 	{
 		if (operation === "+")
 		{
-			console.log("result: " + (+operandA + +operandB));
+			document.getElementsByClassName("screen")[0].value = (+operandA + +operandB);
 		}
 		else if (operation === "-")
 		{
-			console.log("result: " + (+operandA - +operandB));
+			document.getElementsByClassName("screen")[0].value = (+operandA - +operandB);
 		}
 		else if (operation == "*")
 		{
-			console.log("result: " + (+operandA * +operandB));
+			document.getElementsByClassName("screen")[0].value = (+operandA * +operandB);
 		}
 		else if (operation == "/")
 		{
-			console.log("result: " + (+operandA / +operandB));
+			document.getElementsByClassName("screen")[0].value = (+operandA / +operandB);
 		}
 	}
 }

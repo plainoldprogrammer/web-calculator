@@ -18,17 +18,32 @@ body
 	display: table-cell;
 	border: solid;
 	border-width: thin;
-	padding: 40px;
+	padding: 36px;
 	background-color: #ffffff;
+	border-color: 6a6a6a;
+	font-size: 200%;
 }
 
 .screen
 {
 	border: solid;
 	border-width: bold;
-	padding-left: 195px;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	border-color: #6a6a6a;
+	padding-top: 25px;
+	padding-bottom: 25px;
 	margin-bottom: 8px;
+	font-size: 187%;
+}
+
+#calculator
+{
+	background-color: aaaaaa;
+	width: 361px;
+	margin-top: 20px;
+	margin-left: 20px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
 }
 

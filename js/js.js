@@ -17,16 +17,19 @@ for (let i = 0; i < document.getElementsByClassName("cell").length; i++)
 
 function pushButton(e)
 {
-	if (operandA === undefined)
+	if (e.srcElement.innerHTML >= '0' && e.srcElement.innerHTML <= '9')
 	{
-		operandA = e.srcElement.innerHTML;
-	}
-	else
-	{
-		operandA *= 10;
-		operandA += +e.srcElement.innerHTML;
-	}
+		if (operandA === undefined)
+		{
+			operandA = e.srcElement.innerHTML;
+		}
+		else
+		{
+			operandA *= 10;
+			operandA += +e.srcElement.innerHTML;
+		}
 
-	console.log("operandA: " + operandA);
+		console.log("operandA: " + operandA);
+	}
 }
 

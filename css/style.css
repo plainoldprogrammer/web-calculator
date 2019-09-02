@@ -1,5 +1,24 @@
 body
 {
-	background-color: #DDDDDD;
+	background-color: #dddddd;
+}
+
+.table
+{
+	display: table;
+}
+
+.row
+{
+	display: table-row;
+}
+
+.cell
+{
+	display: table-cell;
+	border: solid;
+	border-width: thin;
+	padding: 40px;
+	background-color: #ffffff;
 }
 

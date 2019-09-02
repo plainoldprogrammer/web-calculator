@@ -6,6 +6,7 @@ screen.addEventListener("input", screenChange);
 var operandA;
 var operandB;
 var readOperandB;
+var operation;
 
 function screenChange(e)
 {
@@ -39,6 +40,25 @@ function pushButton(e)
 	{
 		console.log("sum");
 		readOperandB = true;
+		operation = "+";
+	}
+	else if (e.srcElement.innerHTML == "-")
+	{
+		console.log("rest");
+		readOperandB = true;
+		operation = "-";
+	}
+	else if (e.srcElement.innerHTML == "*")
+	{
+		console.log("mult");
+		readOperandB = true;
+		operation = "*";
+	}
+	else if (e.srcElement.innerHTML == "/")
+	{
+		console.log("division");
+		readOperandB = true;
+		operation = "/";
 	}
 	else if (e.srcElement.innerHTML >= "0" && e.srcElement.innerHTML <= 9 && readOperandB)
 	{
@@ -56,7 +76,22 @@ function pushButton(e)
 	}
 	else if (e.srcElement.innerHTML == "=")
 	{
-		console.log("result: " + (operandA + +operandB));
+		if (operation === "+")
+		{
+			console.log("result: " + (+operandA + +operandB));
+		}
+		else if (operation === "-")
+		{
+			console.log("result: " + (+operandA - +operandB));
+		}
+		else if (operation == "*")
+		{
+			console.log("result: " + (+operandA * +operandB));
+		}
+		else if (operation == "/")
+		{
+			console.log("result: " + (+operandA / +operandB));
+		}
 	}
 }
 

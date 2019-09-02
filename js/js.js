@@ -4,6 +4,8 @@ var screen = document.getElementsByClassName("screen")[0];
 screen.addEventListener("input", screenChange);
 
 var operandA;
+var operandB;
+var readOperandB;
 
 function screenChange(e)
 {
@@ -17,7 +19,7 @@ for (let i = 0; i < document.getElementsByClassName("cell").length; i++)
 
 function pushButton(e)
 {
-	if (e.srcElement.innerHTML >= '0' && e.srcElement.innerHTML <= '9')
+	if (e.srcElement.innerHTML >= "0" && e.srcElement.innerHTML <= "9" && (!readOperandB))
 	{
 		if (operandA === undefined)
 		{
@@ -29,7 +31,32 @@ function pushButton(e)
 			operandA += +e.srcElement.innerHTML;
 		}
 
+		readOperandB = false;
+		console.log(readOperandB);
 		console.log("operandA: " + operandA);
+	}
+	else if (e.srcElement.innerHTML == "+")
+	{
+		console.log("sum");
+		readOperandB = true;
+	}
+	else if (e.srcElement.innerHTML >= "0" && e.srcElement.innerHTML <= 9 && readOperandB)
+	{
+		if (operandB == undefined)
+		{
+			operandB = e.srcElement.innerHTML;
+		}
+		else
+		{
+			operandB *= 10;
+			operandB += +e.srcElement.innerHTML;
+		}
+		
+		console.log(operandB);
+	}
+	else if (e.srcElement.innerHTML == "=")
+	{
+		console.log("result: " + (operandA + +operandB));
 	}
 }
 

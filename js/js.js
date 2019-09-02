@@ -6,6 +6,7 @@ var operandA;
 var operandB;
 var readOperandB;
 var operation;
+var result;
 
 for (let i = 0; i < document.getElementsByClassName("cell").length; i++)
 {
@@ -34,24 +35,28 @@ function pushButton(e)
 		readOperandB = true;
 		operation = "+";
 		document.getElementsByClassName("screen")[0].value = "+";
+		operandB = 0;
 	}
 	else if (e.srcElement.innerHTML == "-")
 	{
 		readOperandB = true;
 		operation = "-";
 		document.getElementsByClassName("screen")[0].value = "-";
+		operandB = 0;
 	}
 	else if (e.srcElement.innerHTML == "*")
 	{
 		readOperandB = true;
 		operation = "*";
 		document.getElementsByClassName("screen")[0].value = "*";
+		operandB = 0;
 	}
 	else if (e.srcElement.innerHTML == "/")
 	{
 		readOperandB = true;
 		operation = "/";
 		document.getElementsByClassName("screen")[0].value = "/";
+		operandB = 0;
 	}
 	else if (e.srcElement.innerHTML >= "0" && e.srcElement.innerHTML <= 9 && readOperandB)
 	{
@@ -71,20 +76,23 @@ function pushButton(e)
 	{
 		if (operation === "+")
 		{
-			document.getElementsByClassName("screen")[0].value = (+operandA + +operandB);
+			result = (+operandA + +operandB);
 		}
 		else if (operation === "-")
 		{
-			document.getElementsByClassName("screen")[0].value = (+operandA - +operandB);
+			result = (+operandA - +operandB);
 		}
 		else if (operation == "*")
 		{
-			document.getElementsByClassName("screen")[0].value = (+operandA * +operandB);
+			result = (+operandA * +operandB);
 		}
 		else if (operation == "/")
 		{
-			document.getElementsByClassName("screen")[0].value = (+operandA / +operandB);
+			result = (+operandA / +operandB);
 		}
+
+		document.getElementsByClassName("screen")[0].value = result;
+		operandA = result;
 	}
 }
 

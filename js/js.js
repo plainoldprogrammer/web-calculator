@@ -3,6 +3,8 @@ console.log("JavaScript is running");
 var screen = document.getElementsByClassName("screen")[0];
 screen.addEventListener("input", screenChange);
 
+var operandA;
+
 function screenChange(e)
 {
 	console.log("screen value: " + e.target.value);
@@ -15,6 +17,16 @@ for (let i = 0; i < document.getElementsByClassName("cell").length; i++)
 
 function pushButton(e)
 {
-	console.log(e.srcElement.innerHTML);
+	if (operandA === undefined)
+	{
+		operandA = e.srcElement.innerHTML;
+	}
+	else
+	{
+		operandA *= 10;
+		operandA += +e.srcElement.innerHTML;
+	}
+
+	console.log("operandA: " + operandA);
 }
 

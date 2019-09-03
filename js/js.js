@@ -7,6 +7,8 @@ var operandB;
 var readOperandB;
 var operation;
 var result;
+var isOperandADecimal;
+var isOperandBDecimal;
 
 for (let i = 0; i < document.getElementsByClassName("cell").length; i++)
 {
@@ -21,10 +23,14 @@ function pushButton(e)
 		{
 			operandA = e.srcElement.innerHTML;
 		}
-		else
+		else if (isOperandADecimal === undefined)
 		{
 			operandA *= 10;
 			operandA += +e.srcElement.innerHTML;
+		}
+		else if (isOperandADecimal !== undefined)
+		{
+			operandA += e.srcElement.innerHTML;
 		}
 
 		readOperandB = false;
@@ -58,16 +64,35 @@ function pushButton(e)
 		document.getElementsByClassName("screen")[0].value = "/";
 		operandB = 0;
 	}
+	else if (e.srcElement.innerHTML == ".")
+	{
+		if (operandB === undefined)
+		{
+			operandA += ".";
+			isOperandADecimal = true;
+			document.getElementsByClassName("screen")[0].value = operandA;
+		}
+		else
+		{
+			operandB += ".";
+			isOperandBDecimal = true;
+			document.getElementsByClassName("screen")[0].value = operandB;
+		}
+	}
 	else if (e.srcElement.innerHTML >= "0" && e.srcElement.innerHTML <= 9 && readOperandB)
 	{
 		if (operandB === undefined)
 		{
 			operandB = e.srcElement.innerHTML;
 		}
-		else
+		else if (isOperandBDecimal === undefined)
 		{
 			operandB *= 10;
 			operandB += +e.srcElement.innerHTML;
+		}
+		else if (isOperandBDecimal !== undefined)
+		{
+			operandB += e.srcElement.innerHTML;
 		}
 		
 		document.getElementsByClassName("screen")[0].value = operandB;

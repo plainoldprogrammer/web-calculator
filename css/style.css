@@ -25,6 +25,11 @@ body
 	cursor: hand;
 }
 
+.cell:active
+{
+	background-color: #cccccc;
+}
+
 .screen
 {
 	border: solid;

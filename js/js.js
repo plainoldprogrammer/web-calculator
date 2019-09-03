@@ -60,7 +60,7 @@ function pushButton(e)
 	}
 	else if (e.srcElement.innerHTML >= "0" && e.srcElement.innerHTML <= 9 && readOperandB)
 	{
-		if (operandB == undefined)
+		if (operandB === undefined)
 		{
 			operandB = e.srcElement.innerHTML;
 		}

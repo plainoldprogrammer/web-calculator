@@ -25,6 +25,11 @@ body
 	cursor: hand;
 }
 
+.cell:hover
+{
+		background-color: #aaaaaa;
+}
+
 .cell:active
 {
 	background-color: #cccccc;
